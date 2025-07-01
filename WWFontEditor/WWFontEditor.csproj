@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{400CAE81-EA91-4FE3-9118-19D39983AFDD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WWFontEditor</RootNamespace>
+    <AssemblyName>WWFontEditor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>wwfont.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Compression\DynamixLzHuffDecoder.cs" />
+    <Compile Include="Domain\Compression\JazzRleCompression.cs" />
+    <Compile Include="Domain\Compression\MythosCompression.cs" />
+    <Compile Include="Domain\Compression\PppCompression.cs" />
+    <Compile Include="Domain\Compression\RleCompression.cs" />
+    <Compile Include="Domain\Csv\CsvColumnAttribute .cs" />
+    <Compile Include="Domain\Csv\CsvConverter.cs" />
+    <Compile Include="Domain\Csv\CsvParser.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDotWriter.cs" />
+    <Compile Include="Domain\FontTypes\FontFileEmo.cs" />
+    <Compile Include="Domain\FontTypes\FontFileEsi.cs" />
+    <Compile Include="Domain\FontTypes\FontFileJazz.cs" />
+    <Compile Include="Domain\FontTypes\FontFileJazzC.cs" />
+    <Compile Include="Domain\RemapEncoding.cs" />
+    <Compile Include="Domain\Utils\EncodingSupport.cs" />
+    <Compile Include="Domain\FontTypes\FontDummy.cs" />
+    <Compile Include="Domain\FontTypes\FontFileKotB.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsBfUni.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsBf.cs" />
+    <Compile Include="Domain\UnicodeInfo.cs" />
+    <Compile Include="Domain\Utils\ArrayUtils.cs" />
+    <Compile Include="Domain\Compression\DynamixCompression.cs" />
+    <None Include="Domain\Compression\WestwoodCompression.cs" />
+    <Compile Include="Domain\Compression\DynamixLzwDecoder.cs" />
+    <Compile Include="Domain\FontTypes\FontFileMythos.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV6.cs" />
+    <Compile Include="Domain\FontTypes\FontFileTran.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynSQ5.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV1.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV3.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV5.cs" />
+    <Compile Include="Domain\FontTypes\FontFileKort.cs" />
+    <Compile Include="Domain\FontTypes\FontFileCent.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV4.cs" />
+    <Compile Include="Domain\FontTypes\FontFileMK.cs" />
+    <Compile Include="Domain\FontTypes\FontFileDynV2.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\ClipboardImage.cs" />
+    <Compile Include="Domain\Utils\Crc32.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\BitmapHandler.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\ColorHSL.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\ColorUtils.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\ColorSixBit.cs" />
+    <Compile Include="Domain\D2KEncoding.cs" />
+    <Compile Include="Domain\IFileTypeBroadcaster.cs" />
+    <Compile Include="Domain\FontFile.cs" />
+    <Compile Include="Domain\FontFileSymbol.cs" />
+    <Compile Include="Domain\FontTypes\FontFileD2K.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsV1.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsV4.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsV2.cs" />
+    <Compile Include="Domain\FontTypes\FontFileWsV3.cs" />
+    <Compile Include="Domain\Utils\GeneralUtils.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\DibHandler.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\ImageUtils.cs" />
+    <Compile Include="Domain\FontEditSettings.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\PaletteUtils.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\PixelFormatter.cs" />
+    <Compile Include="Domain\Utils\ImageUtils\WindowsGraphics2d.cs" />
+    <Compile Include="Domain\Utils\SaveOption.cs" />
+    <Compile Include="Domain\Utils\TextUtils.cs" />
+    <Compile Include="UI\FrmImportFromImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmImportFromImage.Designer.cs">
+      <DependentUpon>FrmImportFromImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmManagePalettes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmManagePalettes.Designer.cs">
+      <DependentUpon>FrmManagePalettes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmReplaceColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmReplaceColor.Designer.cs">
+      <DependentUpon>FrmReplaceColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmConvertFontType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmConvertFontType.Designer.cs">
+      <DependentUpon>FrmConvertFontType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmConvertToLowerBpp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmConvertToLowerBpp.Designer.cs">
+      <DependentUpon>FrmConvertToLowerBpp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmFontEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmFontEditor.designer.cs">
+      <DependentUpon>FrmFontEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FrmSetshadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmSetshadow.Designer.cs">
+      <DependentUpon>FrmSetshadow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveOptions\FrmExtraOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\FrmExtraOptions.designer.cs">
+      <DependentUpon>FrmExtraOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionBoolean.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionBoolean.Designer.cs">
+      <DependentUpon>SaveOptionBoolean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionChoices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionChoices.Designer.cs">
+      <DependentUpon>SaveOptionChoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionInfo.cs" />
+    <Compile Include="UI\SaveOptions\SaveOptionNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionNumber.Designer.cs">
+      <DependentUpon>SaveOptionNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionString.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SaveOptions\SaveOptionString.Designer.cs">
+      <DependentUpon>SaveOptionString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\ClipboardBackup.cs" />
+    <Compile Include="UI\Tools\ControlsList\ControlsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\ControlsList\ControlsList.designer.cs">
+      <DependentUpon>ControlsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\ControlsList\CustomControlInfo.cs" />
+    <Compile Include="UI\Tools\ControlsList\ListedControlController.cs" />
+    <Compile Include="UI\Tools\DataGridViewScrollSupport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\ImageButtonCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\EnhNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\ComboBoxSmartWidth.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\InputBox.designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\PalettePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\PalettePanel.designer.cs">
+      <DependentUpon>PalettePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\PixelBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\EnhRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\SelectablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Wrappers\EncodingDropDownInfo.cs" />
+    <Compile Include="UI\Tools\FileDialogGenerator.cs" />
+    <Compile Include="UI\Wrappers\PaletteDropDownInfo.cs" />
+    <EmbeddedResource Include="UI\FrmImportFromImage.resx">
+      <DependentUpon>FrmImportFromImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmManagePalettes.resx">
+      <DependentUpon>FrmManagePalettes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmReplaceColor.resx">
+      <DependentUpon>FrmReplaceColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmConvertFontType.resx">
+      <DependentUpon>FrmConvertFontType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmConvertToLowerBpp.resx">
+      <DependentUpon>FrmConvertToLowerBpp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmFontEditor.resx">
+      <DependentUpon>FrmFontEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\FrmSetshadow.resx">
+      <DependentUpon>FrmSetshadow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveOptions\FrmExtraOptions.resx">
+      <DependentUpon>FrmExtraOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveOptions\SaveOptionBoolean.resx">
+      <DependentUpon>SaveOptionBoolean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveOptions\SaveOptionChoices.resx">
+      <DependentUpon>SaveOptionChoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveOptions\SaveOptionNumber.resx">
+      <DependentUpon>SaveOptionNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SaveOptions\SaveOptionString.resx">
+      <DependentUpon>SaveOptionString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\ControlsList\ControlsList.resx">
+      <DependentUpon>ControlsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="td.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="td.pal">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="license.txt" />
+    <Content Include="Resources\icon_colorchange.png" />
+    <Content Include="Resources\icon_colpicker.png" />
+    <Content Include="Resources\icon_copy.png" />
+    <Content Include="Resources\icon_editarea.png" />
+    <Content Include="Resources\icon_grid.png" />
+    <Content Include="Resources\icon_paste.png" />
+    <Content Include="Resources\icon_pencil.png" />
+    <Content Include="Resources\icon_wraparound.png" />
+    <Content Include="Resources\IniHandler.dll" />
+    <None Include="Resources\UnicodeDescriptions.csv" />
+    <Content Include="wwfont.ico" />
+    <Content Include="WWFontEditor.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nyerguds.Ini\IniHandler.csproj">
+      <Project>{925c0b51-e256-4a5c-8b01-f46aa90982d5}</Project>
+      <Name>IniHandler</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>copy /y "$(ProjectDir)..\Nyerguds.Ini\$(OutDir)IniHandler.dll" "$(ProjectDir)Resources"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

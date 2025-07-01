@@ -1,0 +1,668 @@
+﻿====================
+Westwood Font Editor
+==================== Created by Nyerguds
+
+This editor was originally created to read and write paletted fonts of the
+Westwood Studios games. It has since been expanded to edit other paletted
+fonts formats of games not made by Westwood, with focus on the Sierra Dynamix
+games.
+
+It does not have support for Red Alert 2 fonts because those are high-colour,
+and paletted editing is very different in nature than high colour editing. And
+there's already an editor for that, anyway ;)
+
+Have fun with it!
+
+
+If you like what I'm doing, and you have too much money, feel free to donate:
+https://www.paypal.com/donate/?business=nyerguds@gmail.com&currency_code=EUR
+
+
+=================
+Table of Contents
+=================
+> Features list
+> Shortcuts
+> Managing palettes
+> Full list of supported types / games
+> Note on Dune 2000 support
+> Special thanks to
+> Source code licenses
+> Acknowledgements
+> Version history
+
+
+-------------
+Features list
+-------------
+
+* Can edit fonts from pretty much all pre-RA2 Westwood Studios games.
+* Can edit fonts from the old Sierra/Dynamix adventure games.
+* Fonts can be converted to other font types.
+* Symbol sizes can be adjusted (if the font type supports it).
+* New symbols can be added (if the font type supports it).
+* Symbol images can be shifted up/down/left/right.
+* Data can be copied to other WWFontEditor windows, or even to image editors.
+* Data can be pasted from other WWFontEditor windows, or from images.
+* Has a text encoding dropdown to view character mappings for other encodings.
+* Contains a Dune 2000 encoding for the game's reordered special characters.
+* Can preview text as image, in the chosen text encoding.
+* Has a multitude of inbuilt palettes to show the font symbols.
+* Colour palettes can be edited on-the-fly by double-clicking the colours.
+* Has support for adding and editing custom added palettes (see third section).
+* The editor's colours and defaults can be customized in the settings.
+* Colour Replace simplifies adapting fonts to the colours used on other fonts.
+
+
+---------
+Shortcuts
+---------
+
+The following shortcuts can be used in the editor:
+
+[Ctrl] + C : Copy symbol
+ This data can be used in the current or another Font Editor window, or can be
+ pasted as image or text in other editors. The text on the clipboard will be
+ the currently selected symbol in the chosen text encoding.
+
+[Ctrl] + V : Paste symbol
+ If the data was copied from Font Editor it will simply use the chosen palette.
+ If it was an image, it will match its colours to the current palette.
+[Ctrl] + [Shift] + V : Paste symbol with transparency.
+ Can be used to copy partial symbols. Note that the pasted content cannot be
+ moved around; it will be pasted from the top left corner.
+
+[Ctrl] : Holding down [Ctrl] enables the Colour Picker.
+
+[Ctrl] + [Scroll Wheel] : (with editor selected) Increase/Decrease zoom.
+
+[Ctrl] + [Up]    : Shift image up   
+[Ctrl] + [Down]  : Shift image down	
+[Ctrl] + [Left]  : Shift image left	
+[Ctrl] + [Right] : Shift image right
+ Hold the [Shift] key to apply this operation to all symbols.
+ Hold the [Alt] key to expand the frame when shifting, to avoid losing data.
+
+[Ctrl] + [PageUp]   : Decrease Y-offset
+[Ctrl] + [PageDown] : Increase Y-offset
+ Hold the [Shift] key to apply this operation to all symbols.
+
+
+-----------------
+Managing palettes
+-----------------
+
+The editor has a bunch of automatically-generated colour palettes that allow
+quick visualisation of the fonts. However, if you would wish to add custom
+palettes this is entirely possible too. The two types of palettes that can be
+added are 16-colour palettes and 256-colour palettes. For both of these, the
+editor uses the classic 256-colour palette format used by all C&C games.
+
+Palettes can be managed and added in two ways; manually, or through the editor.
+In reality, no fonts actually use 256-colour palettes, so they will probably
+not be very useful, and you'll generally always use the 16-colour palette
+manager built into the program. It can be accessed in the Edit menu, or when
+pressing the Save button on the palette exitor controls.
+
+This manager can also be opened for 256-colour palettes, but only through the
+palette save button, since those generally don't need to be managed; you can
+just dump them into the game folder and restart the editor, and that's it.
+
+For 16-colour palettes, the process is slightly more complex; the editor uses
+a C&C 256-colour palette for that too, but divides it up into 16 entries. These
+entries are named, and the names are saved in a .ini file with the same name
+and the palette file. The ini has a [Palette] header, and entries from 0 to 15
+below that to indicate which entries are named and thus used. Palettes with
+such an ini file will not show up in the 256-colour palette listing.
+
+With the addition of the palettes manager in v1.7, edited colour palettes can
+now be saved as new entries even if they are based on generated palettes.
+
+
+------------------------------------
+Full list of supported types / games
+------------------------------------
+
+WWFont v1
+-Wargame Construction Set
+-A Nightmare On Elm Street
+-DragonStrike
+-Circuit's Edge
+
+WWFont v2
+-BattleTech: The Crescent Hawk's Revenge
+-Eye of the Beholder
+-Eye of the Beholder 2: The Legend of Darkmoon
+
+WWFont v3
+-The Legend of Kyrandia
+-Dune II
+-Lands of Lore: The Throne of Chaos
+-The Legend of Kyrandia 2: Hand of Fate
+-The Legend of Kyrandia 3: Malcolm's Revenge
+-The Legend of Kyrandia 3: Malcolm's Revenge Installer
+-Command & Conquer
+-Command & Conquer Installer
+-Command & Conquer Red Alert
+-Command & Conquer Red Alert Installer
+-Lands of Lore 2: Guardians of Destiny
+-Lands of Lore 2: Guardians of Destiny Installer
+-Command & Conquer Sole Survivor
+-Lands of Lore III
+
+WWFont v4
+-Command & Conquer Tiberian Sun
+-Command & Conquer Tiberian Sun Installer
+-Command & Conquer Tiberian Sun Firestorm
+-Command & Conquer Tiberian Sun Firestorm Installer
+-Lands of Lore III Installer
+
+IGFont (Dune 2000 was made by Intelligent Games, not by Westwood)
+-Dune 2000
+
+Westwood BitFont
+-Command & Conquer Red Alert 2 (unused editor fonts)
+
+Westwood Unicode BitFont
+-Command & Conquer Red Alert 2
+
+Dynamix Font v1 a/b (2bpp and 4bpp version)
+-Pete Rose Pennant Fever
+-Skyfox II
+-Arctic Fox
+
+Dynamix Font v2
+-Abrams Battle Tank
+-The Train: Escape to Normandy
+
+Dynamix Font v3
+-Die Hard
+-Caveman Ugh-Lympics
+-F-14 Tomcat
+-Suzuki's RM250 Motocross
+-MechWarrior
+-A-10 Tank Killer
+-A-10 Tank Killer v1.5
+-Ghostbusters II
+-DeathTrack
+-David Wolf: Secret Agent
+-Stellar 7
+-Rise of the Dragon
+-Heart of China
+-The Adventures of Willy Beamish
+
+Dynamix Font v4
+-Red Baron
+-Rise of the Dragon
+-Heart of China
+-The Adventures of Willy Beamish
+-Betrayal at Krondor
+-A-10 Tank Killer v1.5
+-Stellar 7
+-Nova 9: The Return of Gir Draxon
+-The Incredible Machine
+-Sid & Al's Incredible Toons
+-Front Page Sports Football
+
+Dynamix Font v5
+-Betrayal at Krondor
+-Front Page Sports Football
+
+Dynamix Font v6
+-Front Page Sports Football Pro
+
+Dynamix Font '96 (doesn't seem related to the older types at all)
+-Space Quest 7
+
+Transylvania Font (probably also Dynamix, but again, no format similarities)
+-Transylvania
+-Transylvania II: The Crimson Crown
+
+Centurion Font
+-Centurion: Defender of Rome
+
+KORT font
+-King Arthur's Knights of the Round Table
+
+Mythos font
+-Sherlock Holmes: The Case of Serrated Scalpel
+
+KotB font (extracted from the decompressed exe file)
+-Kings of the Beach
+
+ESI font
+-Jeopardy! / Family Feud series
+
+Jazz Jackrabbit uncompressed font
+-Jazz Jackrabbit 1
+
+Jazz Jackrabbit compressed font
+-Jazz Jackrabbit 1
+
+--------------------------
+Notes on Dune 2000 support
+--------------------------
+
+The text encoding dropdown list has an extra "Dune 2000 text encoding" item
+at the bottom. The reason for this is that the font is strangely reordered.
+
+Dune 2000 has a text encoding translation table called "FONT.BIN", apparently
+meant to line up the used special characters in the font without leaving gaps.
+(Though, strangely, this isn't used to optimize the font in any way.)
+
+For example, if you need the character "ä", that's byte 0xE4 in the text
+encoding used by the game (Windows-1252; standard US / Western European).
+If you look on address 0xE4 in FONT.BIN, you'll see the value there is 0x80.
+This means that character "ä" is at index 0x80 (128) in the fonts.
+
+So, in short: ä = 0xE4 ==> table index 0xE4 ==> value 0x80 => font index 0x80
+
+(The editor actually does the reverse; going from font table index to character
+by looking up in which spot in the table each index value is, but you don't
+need to do that, since Dune 2000 text files are just in Windows-1252 encoding)
+
+If you want to add fonts for a different text encoding to the game, I advise
+you to get rid of this whole nonsense by replacing FONT.BIN with a 256-byte
+file containing a simple sequence of bytes from 00 to FF, so each character
+simply gets mapped onto itself.
+
+------------------------------
+Notes on Jazz Jackrabbit fonts
+------------------------------
+
+The Jazz Jackrabbit fonts are actually saved as tilesets, and the mapping of
+these tiles to text is rather complex. Because of this, be aware that these
+fonts will have entries in them that are not saved at all in the final file.
+
+Uncompressed font:
+-Only supports 0-9, A-Z, and the % character.
+-Space character is purely editable for the UI and preview; it is not saved.
+
+Compressed font:
+-No support for ASCII symbols $*/@\^_`{|}~
+-No support for ASCII symbol at hex index 7F
+-No support for Extended ASCII symbols at hex indices 9C-9F
+-No support for Extended ASCII symbols at hex indices beyond A5
+-Space character is optional; if its height is set to 0 in the editor, it is
+ saved as value in the header rather than as symbol.
+ 
+-----------------
+Special thanks to
+-----------------
+
+-tomsons26, Omniblade and CCHyper for their research assistance.
+-tomsons26 for the creation of the program icon, for digging through ancient
+ Westwood games, and for his tireless nagging.
+-Moon Flower for the help with the design of the palettes manager.
+-The people of the oldgamesitalia.net forum for getting me interested in game
+ fonts beyond the scope of Westwood Studios.
+-夜宇 (yjfyeyu) for helping me test clipboard problems.
+-伤心的 笔 (Sad Pencil), for correcting the RA2 bitfont specs.
+
+
+--------------------
+Source code licenses
+--------------------
+
+Most of the code is licensed as WTFPL. Meaning, go nuts, do whatever the F you
+want to do with it.
+
+The non-blurring pixel zoom method used in the PixelBox is based on an answer
+on StackOverflow, which means it is licensed under the Creative Commons
+Attribution-Share Alike. Any code in this project based on StackOverflow
+content has links to the original SO posts in the source code files.
+
+The IniHandler is licensed under a license I made ages ago which boils down to
+more or less the same as the WTFPL, but with code-only author attribution, and
+endorsement of use in supervillain activities.
+
+In essence, none of these licenses are restrictive in any way. Want to use this
+code in something, go ahead. I just made this font editor so it would exist.
+
+Just, do please adhere to Wheaton's Law: don't be a dick :)
+
+
+----------------
+Acknowledgements
+----------------
+
+The Westwood Font v3 was figured out by Gordan Ugarkovic.
+http://xhp.xwis.net/documents/ccfonts.txt
+
+The Dune 2000 font was analysed by Roman "Siberian GRemlin" Lotchenov.
+http://xhp.xwis.net/cgi-bin/forum.cgi?a=26;mid=11613
+
+The Dynamix v4 format was figured out thanks to code from ScummVM. ScummVM is
+licensed under the GNU General Public License, but I only used it as reference
+and didn't copy or use their actual code.
+
+The Dynamix LZW and Huffman decompression code was converted from the C++ code
+of the Midi Tools created by VOGONS.org user 'tikalat'. The code contains no
+license, but I assume the fact he included the code implies that tikalat
+doesn't mind it being useful to more people.
+https://www.vogons.org/viewtopic.php?p=273448#p273448
+
+
+---------------
+Version history
+---------------
+
+v1.15.0: (2022/04/28 13:19)
+-Added Jazz Jackrabbit fonts.
+
+v1.14.1: (2022/01/23 13:20)
+-Fixed RA2 unicode bitfont's handling of the symbol height.
+
+v1.14.0: (2021/05/01 01:28)
+-Added padding between symbols as actual UI option.
+-Added support for ESI font
+-Fixed extra options window so its buttons move correctly on resize.
+
+v1.13.5: (2020/03/24 18:12)
+-Fixed crash when using the revert function after saving a new font.
+-Fixed a number of threading problems related to the "unsaved file" warning.
+-Fixed bug where you could drop a file into the editor while saving a file.
+
+v1.13.4: (2020/03/04 18:35)
+-Fixed bug: preview image ignored empty lines at the end of the text.
+
+v1.13.3: (2019/03/21 16:28)
+-Optimised saving of WW Unicode BitFont to make it roughly four times faster.
+-Fixed bug: not all of the UI got unlocked if an error occurred while saving.
+-Start of the unicode range can now be substituted with a different encoding.
+-Added setting to show/hide DOS symbols.
+-Added setting to control unicode 00-FF range encoding substitution.
+-Added setting to change the symbol preview font.
+-Fixed descriptions of symbols that were only defined as range start and end.
+-Fixed issues with the palette revert button.
+-Using "Save as" will no longer replace the loaded font.
+
+v1.13.2: (2019/03/19 16:07)
+-Renamed "WWFont v5" to "WW BitFont (Unicode)" and "WWFont v6" to "WW BitFont".
+
+v1.13.1: (2019/03/19 14:05)
+-Added support for the Red Alert 2 "FoNt" format.
+-Added multithread support to prevent the UI from freezing while saving.
+
+v1.13.0: (2019/03/17 15:25)
+-Added support for the Red Alert 2 "fonT" format (game.fnt).
+ Note: Saving takes long (> 20 sec), and the UI will freeze while saving.
+-Added popup tooltips with symbol info in the sidebar list.
+
+v1.12.7: (2019/03/14 11:26)
+-Fixed pasting of 24-bit DIB images from clipboard.
+
+v1.12.6: (2019/01/25 11:15)
+-Fixed Mythos font support: fixed saving bugs, added compression support.
+
+v1.12.5: (2018/09/17 18:30)
+-Fixed Dune 2000 font saving so empty symbols can't get negative widths.
+
+v1.12.4: (2018/07/31 17:00)
+-Fixed drop shadow options box so its controls properly adjust to resizing.
+-Fixed tab order and shortcuts in shadow options box.
+-Fixed bugs in the calculation of the preview's wrapping width.
+-Adapted wrapping width calculation to compensate for drop shadow.
+-Fixed preview wrapping on types that have padding between symbols.
+-Added one pixel of line padding to the Kings of the Beach font.
+-Pressing shortcuts with Ctrl that cause a pôpup box to appear will no longer
+ make the fast colour picker get stuck.
+
+v1.12.3: (2018/07/30 21:00)
+-Added an option that allows enhancing the preview with a dropped shadow.
+
+v1.12.2: (2018/06/04 13:25)
+-Restricted the amount of symbols in Dynamix fonts v2/3/4/5/6 to 255 so fonts
+ don't save their amount of symbols as "0".
+-Enhanced the "base line" detection algorithm by finding the most commonly
+ used lowest pixel Y-position of the most commonly used colour.
+-Renamed "Dynamix font '96" to "Dynamix Space Quest V Font".
+-Added font height and index optimising save options to Space Quest V font.
+-Fixed Dune 2000 font saving to include a 0x0 entry for the space character.
+-Added index optimisation option to Dynamix v6 font.
+-Fixed new font creation to take the transparency colour into account.
+-Fixed autodetect fallback failure in Mythos VGS format.
+-Improved error handling on file load.
+-Characters below the space now show the DOS ASCII symbols. This is only
+ visual; the original data is still used when copying the character.
+
+v1.12.1: (2018/02/05 14:00)
+-Fixed bug where 16-bit indices in some Westwood and Dynamix fonts were seen
+ as signed values, restricting the font data size to 32k instead of 64k.
+-Fixed bug where increasing the number of symbols would add new symbols with
+ 0x0 dimensions even for font types without individual symbol dimensions.
+
+v1.12: (2018/02/02 23:20)
+-Added the ability to create completely new files.
+-Fixed a crash that happened when the preview tried to draw a 0-width symbol.
+-Improved handling of empty symbols in the data grid.
+
+v1.11: (2017/11/20 13:31)
+-Optimised image memory handling in the user interface.
+-Added save options system that allows specific options per font type.
+-Rewrote the symbol index generating to make optimisation optional.
+-Migrated compression options from program settings to font save options.
+-Added save options for previously uneditable data like Dynamix Y-baseline.
+
+v1.10.6: (2017/09/27 10:15)
+-Added Kings of the Beach font. It's an exe-extracted font, though.
+
+v1.10.5: (2017/09/19 07:35)
+-Fixed a serious bug in the Y-offset optimisation logic.
+-Added new clipboard types (DIB and PNG) to character copy function too.
+
+v1.10.4: (2017/09/18 15:05)
+-Changed "Copy Character" on symbols list to the same new copy function.
+
+v1.10.3: (2017/09/18 14:28)
+-Optimised code for Dynamix font v1 so the a and b variants use the same code.
+-Fixed a small bug that would prevent the correct saving of Dynamix font v1a.
+-Added better clipboard support, for both copying and pasting.
+
+v1.10.2: (2017/08/14 08:15)
+-Tweaked the Mythos Software font to act as 8-bit
+-Implemented support for fonts with a different transparency index.
+-Added the autodetect optimization by extension from the CnC64FileConverter.
+-Fixed some more errors caused by to fonts with a limited start symbol.
+
+v1.10.1: (2017/08/08 22:45)
+-Fixed errors in copied symbol height for fonts with Y-offsets.
+-Preview no longer cuts off symbols with Y that makes them exceed font height.
+-The grid will now ensure its rows are high enough to show the full symbols.
+-Symbols with Y that makes them exceed font height will be cut off in the grid.
+-[Ctrl] + scroll wheel will now zoom the preview pane (if it's selected).
+-The grid no longer jumps to the default index when refreshing from index 0.
+-Fixed bugs and crashes related to fonts with a limited start symbol.
+-Added support for the font from the Sherlock Holmes: Serrated Scalpel game.
+
+v1.10: (2017/08/04 21:46)
+-[Ctrl] + scroll wheel will now zoom the editor (if it's selected).
+-Fixed a bug where the symbol heights did not always adapt to the font height.
+-Added support for the font from "King Arthur's Knights of the Round Table".
+-Added older Dynamix font types, and and shifted the version numbers.
+-Added support for the 8-bit Dynamix format used in "Betrayal at Krondor".
+-Identified more games using these Dynamix fonts.
+-Added support for the font from "Space Quest V".
+-Added support for the font in the Transylvania games (probably also Dynamix)
+-Renamed internal classes so the Westwood fonts actuall have "WS" in the name.
+-Added better LZW unpacking method which does not overflow on large files.
+
+v1.9.9: (2017/07/24 15:11)
+-Added zoom controls to preview pane.
+
+v1.9.8: (2017/07/24 13:34)
+-Fixed a number of bugs in the symbol paste / revert logic.
+-Added scrollbars to preview pane.
+-Fixed bug where preview wrapping didn't paint the symbol at which it wrapped.
+-Added an option to disable wrapping in the preview pane.
+-For fonts that have a fixed start symbol, lower symbols will be hidden.
+
+v1.9.7: (2017/07/24 09:52)
+-Added support for Centurion fonts without header.
+-Removed support for Centurion fonts with artificially added header.
+
+v1.9.6: (2017/07/23 20:00)
+-Added support for the Centurion fonts, if a header is added.
+-Characters pushed beyond their boundaries by Y-offset are now drawn correctly.
+
+v1.9.5: (2017/07/14 18:42)
+-Fixed another crash in the symbols optimizing code.
+-Restored older working code for bit reading order.
+
+v1.9.4: (2017/07/14 10:37)
+-Fixed some problem with collapsing identical symbols that caused a crash.
+
+v1.9.3: (2017/07/13 19:07)
+-Fixed remaining bugs from the cleanup that made Dynamix fonts not work.
+
+v1.9.2: (2017/07/12 23:20)
+-Added option to disable optional compression when saving fonts.
+-Fixed bugs in the array toolsets for reading and writing bytes that
+ messed up all reading of the non-Dynamix types starting from v1.8.
+
+v1.9.1: (2017/07/12 14:16)
+-Added RLE compression to Dynamix v2 font saving.
+
+v1.9: (2017/07/12 12:05)
+-Removed extension filter on drag-and-drop. You can try to load any file.
+-Hovering over the chosen colors highlights them on the palette.
+-Double-clicking the chosen colors edits them on the palette.
+-Save As dialog adapts loaded file name's extension to suggested save type.
+-A default save type (WW v3) is suggested if the loaded type can't be saved.
+-Added support for Dynamix font v2, though it doesn't compress on save.
+
+v1.8.1: (2017/07/10 11:00)
+-Specifically identifies and rejects 'FF'-typed Dynamix font type.
+
+v1.8: (2017/07/10 10:32)
+-Added support for basic Dynamix/Sierra 1-bit font.
+-Split autodetect list and supported files list, so the supported files can be
+ in an order that's more logical than the auto-detect order.
+
+v1.7.1: (2017/05/23 18:40)
+-Added new "Paste on symbol" option (Ctrl+Shift+V) that pastes with
+ transparency. This can be used to easily copy diacritics.
+
+v1.7: (2017/04/21 17:02)
+-Edited 16-colour palettes can now be saved using a new palette manager.
+
+v1.6.1: (2017/04/17 11:06)
+-Shifting shortcuts no longer work from text fields or the characters list.
+-Added better close confirmations, with prompt to save.
+
+v1.6: (2017/04/11 08:30)
+-Added option for limiting 8-bit font types to use only 16 colours.
+
+v1.5.9: (2017/04/09 12:49)
+-Added shortcuts for bulk shifting without data loss and Y-offset changes.
+-Holding down Ctrl now enables colour picker mode, for fast colour picking.
+-Optimized refreshing of paint mode and colour pick mode.
+-Colour picker now shows a hand cursor.
+
+v1.5.8: (2017/04/09 00:30)
+-Fixed a bug in the font size changing that made it change the wrong dimension.
+-Fixed assembly name; it was still "CnCFontEditor".
+
+v1.5.7: (2017/04/08 19:40)
+-Fixed a crash in the previewer when one of the previewed characters is the
+ last character in the font.
+
+v1.5.6: (2017/04/08 15:28)
+-Fixed the fact changing the Y-offset didn't refresh the characters grid.
+
+v1.5.5: (2017/04/08 14:24)
+-Copying a symbol to the clipboard now also sets it in the clipboard as text.
+
+v1.5.4: (2016/12/21 13:21)
+-Fixed the (MS) bug where editing palette colour #0 messed up the clipboard.
+ (Double clicking a label copies its text to the clipboard. Pretty dumb.)
+-Optimized some of the internals.
+
+v1.5.3: (2016/12/16 17:42)
+-Added code page numbers to encodings dropdown, and put 437 with DOS encodings.
+-WWFont v3 and v4 will now do automatic height and Y-offset optimization.
+-Fixed Dune 2000 text encoding handling so it can accept custom FONT.BIN files.
+
+v1.5.2: (2016/12/10 07:51)
+-Improved "save as" logic with font type selection.
+-Added a right-click menu to the grid to copy a symbol as text.
+-Added confirmation dialogs when closing and when opening on a modified font.
+-Added command line argument support for opening a file.
+
+v1.5.1: (2016/12/10 05:12)
+-Fixed bug where image pasting always took precedence over font symbol pasting.
+
+v1.5: (2016/12/09 23:22)
+-Implemented font type conversion.
+-Added global colour replace function.
+-Ctrl + arrow keys serve as shortcuts for image shifting.
+-Ctrl + Shift + arrow keys will shift all images in the font.
+-The preview image can now be copied to the clipboard with a right-click menu.
+-Images can now be pasted from the clipboard. They'll adapt to the palette.
+
+v1.4: (2016/12/08 20:58)
+-Clipboard copy can now also be pasted as image in other applications.
+-The correct symbol will be opened even when the grid columns are reordered.
+-Added preview pane at the bottom.
+-Opening a file by double-clicking in the dialog can no longer paint a pixel.
+-The symbol image now refreshes correctly after a palette revert.
+-Symbols in the grid are no longer centered but drawn at the correct position.
+
+v1.3: (2016/12/06 17:22)
+-True clipboard implemented: symbols can now be copied across different
+ instances of the program.
+-Palette support implemented: the program will now read any C&C type palettes
+ in the program folder. If an ini file of the same name is added, the palette
+ is divided into 16-colour palettes according to keys 0 to 15 under [Palette].
+-Application settings added: all UI colours and defaults can now be customized.
+
+v1.2.2: (2016/12/01 21:53)
+-Implemented correct conversion of symbols pasted in from a different font type.
+-Added support for Dune 2000's "pixels between symbols" info; the symbols are
+ now padded with that amount of pixels, and width-optimized again on save.
+-Added support for Dune 2000's character order, with a "Dune 2000" encoding.
+
+v1.2.1: (2016/11/30 20:21)
+-Added experimental Dune 2000 support. Strange format, so I have no idea if the
+ game manages to read the files saved with this.
+
+v1.2: (2016/11/30 15:29)
+-Implemented support for older versions of the font format.
+-Split internal font versions off into separate classes.
+-Made unified reading and writing methods for 1, 4 and 8 bit data.
+
+v1.1: (2016/11/29 20:16)
+-Implemented TS font support.
+-Fixed bug that sometimes occurred when larger fonts were loaded after smaller ones.
+-Fixed bug that prevented disabling the grids.
+
+v1.0: (2016/11/29 14:18)
+-Added list of editable symbols, with hex ID, decimal id, character, and symbol preview.
+-Added text encoding dropdown, to change the comparison characters in the list.
+-Amount of symbols is editable.
+-Overall font width and height are editable.
+-Width, height and Y-offset are editable.
+-Added buttons to shift the image data up / left / right / down.
+-Added Revert option for reloading a symbol to the original loaded state.
+-Added Copy & Paste options for copying whole symbols.
+-Modified palette control to support both 16 and 256 colour for later TS/D2k support.
+-Added edit mode buttons for normal drawing and colour picker.
+
+v0.4: (2016/11/26 21:26)
+-Added 16-colour palette to select left and right mouse button colours.
+
+v0.3: (2016/11/25 21:56)
+-Saving implemented.
+
+v0.2: (2016/11/25 14:23)
+-Basic 2-button pixel editing implemented, but no palette selector yet,
+ limiting to the set colours.
+-Split grid and editable area into two options
+-Shows current edit foreground colour (but it can't be changed)
+
+v0.1: (2016/11/22 23:24)
+-Basic viewing implemented, including Y-offset. No editing.
+-Shows amount of symbols, font width/height, symbol width / height / Y-offset
+-Can open Lands of Lore / Kegend of Kyrandia / Dune II / C&C1 / Red Alert font format.
+-Basic zoomable viewer with grid
+-Numeric up/down control for changing indices
